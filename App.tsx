@@ -2,12 +2,18 @@ import 'react-native-gesture-handler';
 
 import React from 'react';
 
-import Routes from './src/routes';
+import {ThemeProvider} from 'styled-components/native';
+
+import Login from './src/screens/Login';
+import COLORS from './src/styles/theme';
 
 export default function App() {
   return (
     <>
-      <Routes />
+      <ThemeProvider theme={COLORS}>
+        <Login />
+        {/* <Routes /> */}
+      </ThemeProvider>
     </>
   );
 }
