@@ -4,15 +4,14 @@ import React from 'react';
 
 import {ThemeProvider} from 'styled-components/native';
 
-import Login from './src/screens/Login';
+import Routes from './src/routes';
 import COLORS from './src/styles/theme';
 
 export default function App() {
   return (
     <>
       <ThemeProvider theme={COLORS}>
-        <Login />
-        {/* <Routes /> */}
+        <Routes />
       </ThemeProvider>
     </>
   );

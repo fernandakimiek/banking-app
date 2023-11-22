@@ -12,6 +12,8 @@ const Stack = createNativeStackNavigator();
 type StackNavigation = {
   Home: undefined;
   Login: undefined;
+  ForgotPassword: undefined;
+  SignUp: undefined;
 };
 
 export type StackTypes = NativeStackNavigationProp<StackNavigation>;

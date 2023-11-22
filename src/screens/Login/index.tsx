@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {
   Button,
@@ -8,11 +9,12 @@ import {
   TextInput,
   View,
 } from 'react-native';
+import {StackTypes} from '../../routes/stack';
 
 export default function Login() {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-  // const navigation = useNavigation<StackTypes>();
+  const navigation = useNavigation<StackTypes>();
   return (
     <>
       <View style={styles.container}>
@@ -44,13 +46,13 @@ export default function Login() {
         </View>
 
         <View style={styles.containerForgotPassword}>
-          <Pressable onPress={() => console.log('recuperar senha')}>
+          <Pressable onPress={() => navigation.navigate('ForgotPassword')}>
             <Text style={styles.textPressable}>Forgot password</Text>
           </Pressable>
         </View>
         <View style={styles.footer}>
           <Text style={styles.footerText}>Don't have an account yet? </Text>
-          <Pressable onPress={() => console.log('cadastrar')}>
+          <Pressable onPress={() => navigation.navigate('SignUp')}>
             <Text style={styles.textPressable}>Sign up</Text>
           </Pressable>
         </View>
