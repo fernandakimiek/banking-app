@@ -8,15 +8,21 @@ import {
   Text,
   TextInput,
   View,
+  ScrollView,
 } from 'react-native';
 import {StackTypes} from '../../routes/stack';
+
+import {useAuth} from '../../contexts/Auth';
 
 export default function Login() {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const navigation = useNavigation<StackTypes>();
+  const {signIn} = useAuth();
   return (
-    <>
+    <ScrollView
+      contentContainerStyle={{flexGrow: 1}}
+      keyboardShouldPersistTaps="handled">
       <View style={styles.container}>
         <View style={styles.login}>
           <Image
@@ -35,13 +41,14 @@ export default function Login() {
             onChangeText={setPassword}
             value={password}
             placeholder="Password"
+            textContentType="password"
           />
         </View>
         <View style={styles.button}>
           <Button
             color="#973aee"
             title="Login"
-            onPress={() => console.log('logou')}
+            onPress={() => signIn(email, password)}
           />
         </View>
 
@@ -57,12 +64,16 @@ export default function Login() {
           </Pressable>
         </View>
       </View>
-    </>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {backgroundColor: '#d4c3eb', height: '100%'},
+  container: {
+    backgroundColor: '#d4c3eb',
+    height: '100%',
+    justifyContent: 'space-between',
+  },
   login: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -97,7 +108,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'absolute',
+    // position: 'absolute',
     left: 0,
     right: 0,
     bottom: 30,

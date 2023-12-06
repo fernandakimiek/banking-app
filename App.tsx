@@ -6,13 +6,14 @@ import {ThemeProvider} from 'styled-components/native';
 
 import Routes from './src/routes';
 import COLORS from './src/styles/theme';
+import {AuthProvider} from './src/contexts/Auth';
 
 export default function App() {
   return (
-    <>
+    <AuthProvider>
       <ThemeProvider theme={COLORS}>
         <Routes />
       </ThemeProvider>
-    </>
+    </AuthProvider>
   );
 }

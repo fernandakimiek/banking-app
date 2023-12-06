@@ -14,6 +14,7 @@ type StackNavigation = {
   Login: undefined;
   ForgotPassword: undefined;
   SignUp: undefined;
+  Profile: undefined;
 };
 
 export type StackTypes = NativeStackNavigationProp<StackNavigation>;
