@@ -8,7 +8,7 @@ import Routes from './src/routes';
 import COLORS from './src/styles/theme';
 import {AuthProvider} from './src/contexts/Auth';
 
-export default function App() {
+const App = () => {
   return (
     <AuthProvider>
       <ThemeProvider theme={COLORS}>
@@ -16,4 +16,6 @@ export default function App() {
       </ThemeProvider>
     </AuthProvider>
   );
-}
+};
+
+export default App;
