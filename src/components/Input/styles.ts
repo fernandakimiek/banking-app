@@ -5,7 +5,8 @@ export const ContainerInput = styled.TextInput`
   margin: 12px;
   border-width: 2px;
   padding: 10px;
-  width: 80%;
+  width: 100%;
+  min-width: 80%;
   border-radius: 10px;
   border-color: #b65ef1;
 `;
