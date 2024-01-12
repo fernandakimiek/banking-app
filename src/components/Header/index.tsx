@@ -1,18 +1,32 @@
 import React from 'react';
-import {Container, ContainerHeader, Avatar, AppName, Status} from './styles';
+import {
+  Container,
+  ContainerHeader,
+  Avatar,
+  AppName,
+  Status,
+  ContainerAccount,
+} from './styles';
+import {useAuth} from '../../contexts/Auth';
+import Text from '../Text';
 
 export default function Header() {
+  const {authData} = useAuth();
   return (
     <Container>
       <ContainerHeader>
-        <AppName>Banking App</AppName>
+        <AppName>Hello {authData?.name}!</AppName>
         <Status>Ativo</Status>
       </ContainerHeader>
       <Avatar
         source={{
-          uri: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/275.jpg',
+          uri: authData?.avatar,
         }}
       />
+      {/* <ContainerAccount>
+        <Text>{authData?.account}</Text>
+        <Text>{authData?.amount}</Text>
+      </ContainerAccount> */}
     </Container>
   );
 }

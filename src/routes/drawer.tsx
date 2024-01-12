@@ -39,15 +39,13 @@ export default function DrawerRoutes() {
 
       <Drawer.Screen
         name="logout"
+        listeners={{
+          drawerItemPress: signOut,
+        }}
         component={Login}
         options={{
           drawerIcon: () => (
-            <MaterialIcons
-              name="logout"
-              size={24}
-              color="black"
-              onPress={signOut}
-            />
+            <MaterialIcons name="logout" size={24} color="black" />
           ),
           drawerLabel: 'Logout',
         }}

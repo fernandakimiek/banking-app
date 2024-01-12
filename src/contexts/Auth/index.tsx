@@ -10,8 +10,14 @@ import {authService} from '../../services/authService';
 import {Alert} from 'react-native';
 export interface AuthData {
   token: string;
-  email: string;
-  name: string;
+  id: Number;
+  createdAt: Date;
+  name: String;
+  avatar: String | any;
+  email: String;
+  password: String;
+  amount: Number | any;
+  account: Number | any;
 }
 
 interface AuthContextData {

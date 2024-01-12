@@ -1,97 +1,47 @@
 import React from 'react';
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+
+import {signUpService} from '../../services/signUpService';
+import {Container, ContainerFooter, FormView} from './styles';
+import Text from '../../components/Text';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+import {textTypes} from '../../components/Text/textTypes';
 
 export default function SignUp() {
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
+  const handleSignUp = async () => {
+    await signUpService.signUp(email, name, password);
+    setName('');
+    setEmail('');
+    setPassword('');
+  };
+
   return (
     <>
-      <View style={styles.container}>
-        <View style={styles.login}>
-          <Text style={styles.title}>Sign Up</Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={setName}
-            placeholder="Name"
-            value={name}
-          />
-          <TextInput
-            style={styles.input}
-            onChangeText={setEmail}
-            placeholder="E-mail"
-            value={email}
-          />
-          <TextInput
-            style={styles.input}
+      <Container>
+        <FormView>
+          <Text type={textTypes.TITLE}>Sign Up</Text>
+          <Input onChangeText={setName} placeholder="Name" value={name} />
+          <Input onChangeText={setEmail} placeholder="E-mail" value={email} />
+          <Input
             onChangeText={setPassword}
             value={password}
             placeholder="Password"
           />
-        </View>
-        <View style={styles.button}>
+        </FormView>
+        <ContainerFooter>
           <Button
             color="#973aee"
-            title="Register"
-            onPress={() => console.log('registrou')}
+            title="REGISTER"
+            margin={18}
+            typeText={textTypes.SUBTITLE}
+            onPress={() => handleSignUp()}
           />
-        </View>
-      </View>
+        </ContainerFooter>
+      </Container>
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {backgroundColor: '#d4c3eb', height: '100%'},
-  login: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 80,
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#63099e',
-  },
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 2,
-    padding: 10,
-    width: '80%',
-    borderRadius: 10,
-    borderColor: '#b65ef1',
-  },
-  logo: {
-    height: 150,
-    width: 150,
-    marginBottom: 40,
-  },
-  button: {
-    padding: 20,
-    marginLeft: 20,
-    marginRight: 20,
-  },
-  footer: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 30,
-  },
-  footerText: {
-    fontSize: 14,
-  },
-  textPressable: {
-    fontSize: 14,
-    color: '#721f99',
-    fontWeight: 'bold',
-  },
-  containerForgotPassword: {
-    alignItems: 'center',
-  },
-});

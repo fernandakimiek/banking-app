@@ -15,6 +15,12 @@ export const ContainerHeader = styled.View`
   justify-content: center;
 `;
 
+export const ContainerAccount = styled.View`
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Avatar = styled.Image`
   width: 56px;
   height: 56px;

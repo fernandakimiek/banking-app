@@ -18,12 +18,12 @@ export default function AuthRoutes() {
       <Auth.Screen
         name="ForgotPassword"
         component={ForgotPassword}
-        options={{headerShown: true}}
+        options={{headerShown: true, title: ''}}
       />
       <Auth.Screen
         name="SignUp"
         component={SignUp}
-        options={{headerShown: true}}
+        options={{headerShown: true, title: ''}}
       />
     </Auth.Navigator>
   );
