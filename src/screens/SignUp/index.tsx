@@ -1,11 +1,11 @@
 import React from 'react';
 
-import {signUpService} from '../../services/signUpService';
-import {Container, ContainerFooter, FormView} from './styles';
+import { signUpService } from '../../services/signUpService';
+import { Container, ContainerFooter, FormView } from './styles';
 import Text from '../../components/Text';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import {textTypes} from '../../components/Text/textTypes';
+import { textTypes } from '../../components/Text/textTypes';
 
 export default function SignUp() {
   const [name, setName] = React.useState('');
@@ -26,11 +26,7 @@ export default function SignUp() {
           <Text type={textTypes.TITLE}>Sign Up</Text>
           <Input onChangeText={setName} placeholder="Name" value={name} />
           <Input onChangeText={setEmail} placeholder="E-mail" value={email} />
-          <Input
-            onChangeText={setPassword}
-            value={password}
-            placeholder="Password"
-          />
+          <Input onChangeText={setPassword} value={password} placeholder="Password" />
         </FormView>
         <ContainerFooter>
           <Button

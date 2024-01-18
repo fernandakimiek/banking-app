@@ -1,24 +1,25 @@
 import React from 'react';
-import {Feather} from '@expo/vector-icons';
-import {MaterialIcons} from '@expo/vector-icons';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import { Feather } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import StackRoutes from './stack';
 import TabRoutes from './tab';
 import Login from '../screens/Login';
-import {useAuth} from '../contexts/Auth';
+import { useAuth } from '../contexts/Auth';
 
 const Drawer = createDrawerNavigator();
 
 export default function DrawerRoutes() {
-  const {authData, signOut} = useAuth();
+  const { authData, signOut } = useAuth();
   return (
     <Drawer.Navigator
       screenOptions={{
         overlayColor: 'transparent',
         title: '',
         headerShown: authData ? true : false,
-      }}>
+      }}
+    >
       <Drawer.Screen
         name="home"
         component={TabRoutes}
@@ -44,9 +45,7 @@ export default function DrawerRoutes() {
         }}
         component={Login}
         options={{
-          drawerIcon: () => (
-            <MaterialIcons name="logout" size={24} color="black" />
-          ),
+          drawerIcon: () => <MaterialIcons name="logout" size={24} color="black" />,
           drawerLabel: 'Logout',
         }}
       />

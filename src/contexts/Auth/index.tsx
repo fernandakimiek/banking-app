@@ -1,13 +1,7 @@
-import React, {
-  ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import React, { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {authService} from '../../services/authService';
-import {Alert} from 'react-native';
+import { authService } from '../../services/authService';
+import { Alert } from 'react-native';
 export interface AuthData {
   token: string;
   id: Number;
@@ -33,7 +27,7 @@ type AuthProviderProps = {
   children: ReactNode;
 };
 
-export const AuthProvider = ({children}: AuthProviderProps) => {
+export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [authData, setAuthData] = useState<AuthData>();
   const [isLoading, setisLoading] = useState(true);
 
@@ -72,7 +66,7 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
   }
 
   return (
-    <AuthContext.Provider value={{authData, signIn, signOut, isLoading}}>
+    <AuthContext.Provider value={{ authData, signIn, signOut, isLoading }}>
       {children}
     </AuthContext.Provider>
   );

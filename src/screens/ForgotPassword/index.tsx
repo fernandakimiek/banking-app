@@ -1,10 +1,10 @@
 import React from 'react';
 
 import Text from '../../components/Text';
-import {textTypes} from '../../components/Text/textTypes';
+import { textTypes } from '../../components/Text/textTypes';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import {ForgotPasswordContainer, InputContainer} from './styles';
+import { ForgotPasswordContainer, InputContainer } from './styles';
 
 const ForgotPassword = () => {
   const [email, setEmail] = React.useState('');
@@ -13,9 +13,7 @@ const ForgotPassword = () => {
     <>
       <ForgotPasswordContainer>
         <InputContainer>
-          <Text type={textTypes.SUBTITLE}>
-            Enter your email to reset your password
-          </Text>
+          <Text type={textTypes.SUBTITLE}>Enter your email to reset your password</Text>
           <Input onChangeText={setEmail} placeholder="E-mail" value={email} />
 
           <Button

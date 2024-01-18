@@ -21,7 +21,7 @@ export type StackTypes = NativeStackNavigationProp<StackNavigation>;
 
 export default function StackRoutes() {
   return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="profile" component={Profile} />
     </Stack.Navigator>
   );

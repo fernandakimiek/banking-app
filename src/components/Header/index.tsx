@@ -1,17 +1,9 @@
 import React from 'react';
-import {
-  Container,
-  ContainerHeader,
-  Avatar,
-  AppName,
-  Status,
-  ContainerAccount,
-} from './styles';
-import {useAuth} from '../../contexts/Auth';
-import Text from '../Text';
+import { Container, ContainerHeader, Avatar, AppName, Status } from './styles';
+import { useAuth } from '../../contexts/Auth';
 
 export default function Header() {
-  const {authData} = useAuth();
+  const { authData } = useAuth();
   return (
     <Container>
       <ContainerHeader>

@@ -1,4 +1,4 @@
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -30,11 +30,11 @@ export const Avatar = styled.Image`
 
 export const AppName = styled.Text`
   font-size: 20px;
-  color: ${({theme}) => theme.PURPLE};
+  color: ${({ theme }) => theme.PURPLE};
   font-weight: 700;
 `;
 
 export const Status = styled.Text`
   font-size: 15px;
-  color: ${({theme}) => theme.GRAY4};
+  color: ${({ theme }) => theme.GRAY4};
 `;

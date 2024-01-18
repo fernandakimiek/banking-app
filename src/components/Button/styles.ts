@@ -12,6 +12,6 @@ export const ContainerButton = styled.TouchableOpacity<ButtonContainerProps>`
   justify-content: center;
   align-items: center;
 
-  ${props => (props.margin ? `margin: ${props.margin}px;` : '')}
-  ${props => (props.color ? `background-color: ${props.color};` : 'blue')}
+  ${(props) => (props.margin ? `margin: ${props.margin}px;` : '')}
+  ${(props) => (props.color ? `background-color: ${props.color};` : 'blue')}
 `;

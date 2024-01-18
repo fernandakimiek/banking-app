@@ -1,5 +1,5 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import TabRoutes from './tab';
 
@@ -11,7 +11,8 @@ export default function AppRoutes() {
       initialRouteName="TabRoutes"
       screenOptions={{
         headerShown: false,
-      }}>
+      }}
+    >
       <Stack.Screen name="TabRoutes" component={TabRoutes} />
     </Stack.Navigator>
   );

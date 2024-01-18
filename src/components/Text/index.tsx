@@ -1,13 +1,13 @@
-import {TextProps as TextPropsNative} from 'react-native/types';
-import {ContainerText} from './styles';
-import {useMemo} from 'react';
-import {textTypes} from './textTypes';
+import { TextProps as TextPropsNative } from 'react-native/types';
+import { ContainerText } from './styles';
+import { useMemo } from 'react';
+import { textTypes } from './textTypes';
 
 interface TextProps extends TextPropsNative {
   color?: string;
   type?: string;
 }
-const Text = ({color, type, ...props}: TextProps) => {
+const Text = ({ color, type, ...props }: TextProps) => {
   const handleFontSize = useMemo(() => {
     switch (type) {
       case textTypes.TITLE:

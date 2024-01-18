@@ -21,5 +21,5 @@ export const Content = styled.View`
   width: 100%;
   height: 180px;
   border-radius: 50px;
-  background-color: ${({theme}) => theme.PURPLEDARK1};
+  background-color: ${({ theme }) => theme.PURPLEDARK1};
 `;

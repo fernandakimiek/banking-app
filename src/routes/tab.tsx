@@ -1,10 +1,7 @@
 import * as React from 'react';
 
-import {Feather, MaterialIcons, AntDesign} from '@expo/vector-icons';
-import {
-  BottomTabNavigationProp,
-  createBottomTabNavigator,
-} from '@react-navigation/bottom-tabs';
+import { Feather, MaterialIcons, AntDesign } from '@expo/vector-icons';
+import { BottomTabNavigationProp, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Home from '../screens/Home';
 import Investment from '../screens/Investment';
@@ -36,14 +33,13 @@ export default function TabRoutes() {
         tabBarLabelStyle: {
           fontSize: 11,
         },
-      }}>
+      }}
+    >
       <Tab.Screen
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({color, size}) => (
-            <Feather name="home" color={color} size={size} />
-          ),
+          tabBarIcon: ({ color, size }) => <Feather name="home" color={color} size={size} />,
           tabBarLabel: 'Home',
         }}
       />
@@ -51,7 +47,7 @@ export default function TabRoutes() {
         name="CreditCard"
         component={CreditCard}
         options={{
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <AntDesign name="creditcard" size={size} color={color} />
           ),
           tabBarLabel: 'Credit Card',
@@ -61,7 +57,7 @@ export default function TabRoutes() {
         name="Investment"
         component={Investment}
         options={{
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({ color, size }) => (
             <MaterialIcons name="attach-money" size={size} color={color} />
           ),
           tabBarLabel: 'Investment',

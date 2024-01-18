@@ -1,10 +1,10 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import { Text, View } from 'react-native';
 
-import {PaymentIcon} from 'react-native-payment-icons';
-import {Ionicons} from '@expo/vector-icons';
+import { PaymentIcon } from 'react-native-payment-icons';
+import { Ionicons } from '@expo/vector-icons';
 import theme from '../../styles/theme';
-import {Container, Content, ContentAccount} from './styles';
+import { Container, Content, ContentAccount } from './styles';
 
 export default function CreditCard() {
   return (
@@ -16,7 +16,8 @@ export default function CreditCard() {
               color: theme.GRAY,
               fontSize: 15,
               marginTop: 10,
-            }}>
+            }}
+          >
             BASIC CURRENT ACCOUNT
           </Text>
 
@@ -25,7 +26,8 @@ export default function CreditCard() {
               color: theme.WHITE,
               fontWeight: 'bold',
               fontSize: 25,
-            }}>
+            }}
+          >
             R$ 15.000,00 <Ionicons name="eye" size={24} color="white" />
           </Text>
 
@@ -33,7 +35,8 @@ export default function CreditCard() {
             style={{
               color: theme.GRAY,
               fontSize: 15,
-            }}>
+            }}
+          >
             JOHN TRAVOLTA
           </Text>
           <View
@@ -41,7 +44,8 @@ export default function CreditCard() {
               alignSelf: 'flex-end',
               marginRight: 25,
               marginBottom: 10,
-            }}>
+            }}
+          >
             <PaymentIcon type="master" width={40} />
           </View>
         </ContentAccount>

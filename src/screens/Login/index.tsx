@@ -1,15 +1,15 @@
 import React from 'react';
 
-import {useNavigation} from '@react-navigation/native';
-import {Image, StyleSheet, ScrollView} from 'react-native';
-import {StackTypes} from '../../routes/stack';
+import { useNavigation } from '@react-navigation/native';
+import { Image, StyleSheet, ScrollView } from 'react-native';
+import { StackTypes } from '../../routes/stack';
 
-import {useAuth} from '../../contexts/Auth';
-import {ContainerLogin, ContainerInputs, ContainerFooter} from './styles';
+import { useAuth } from '../../contexts/Auth';
+import { ContainerLogin, ContainerInputs, ContainerFooter } from './styles';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
-import {textTypes} from '../../components/Text/textTypes';
+import { textTypes } from '../../components/Text/textTypes';
 import PressableText from '../../components/PressableText';
 
 const styles = StyleSheet.create({
@@ -27,17 +27,12 @@ const Login = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const navigation = useNavigation<StackTypes>();
-  const {signIn} = useAuth();
+  const { signIn } = useAuth();
   return (
-    <ScrollView
-      contentContainerStyle={styles.scrollView}
-      keyboardShouldPersistTaps="handled">
+    <ScrollView contentContainerStyle={styles.scrollView} keyboardShouldPersistTaps="handled">
       <ContainerLogin>
         <ContainerInputs>
-          <Image
-            style={styles.logo}
-            source={require('../../assets/images/wallet.png')}
-          />
+          <Image style={styles.logo} source={require('../../assets/images/wallet.png')} />
           <Text type={textTypes.TITLE}>Welcome to Banking App!</Text>
           <Input onChangeText={setEmail} placeholder="E-mail" value={email} />
           <Input
