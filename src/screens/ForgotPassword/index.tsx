@@ -5,6 +5,7 @@ import { textTypes } from '../../components/Text/textTypes';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import { ForgotPasswordContainer, InputContainer } from './styles';
+import { buttonsTheme } from '../../components/Button/types';
 
 const ForgotPassword = () => {
   const [email, setEmail] = React.useState('');
@@ -17,8 +18,8 @@ const ForgotPassword = () => {
           <Input onChangeText={setEmail} placeholder="E-mail" value={email} />
 
           <Button
-            color="#973aee"
             title="SEND"
+            type={buttonsTheme.primary}
             margin={18}
             typeText={textTypes.SUBTITLE}
             onPress={() => console.log('enviou email')}

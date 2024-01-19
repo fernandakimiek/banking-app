@@ -11,6 +11,7 @@ import Button from '../../components/Button';
 import Text from '../../components/Text';
 import { textTypes } from '../../components/Text/textTypes';
 import PressableText from '../../components/PressableText';
+import { buttonsTheme } from '../../components/Button/types';
 
 const styles = StyleSheet.create({
   logo: {
@@ -44,11 +45,12 @@ const Login = () => {
         </ContainerInputs>
 
         <Button
-          color="#973aee"
+          // color="#973aee"
           title="LOGIN"
           margin={18}
           typeText={textTypes.SUBTITLE}
           onPress={() => signIn(email, password)}
+          type={buttonsTheme.primary}
         />
         <PressableText
           color="#721f99"
