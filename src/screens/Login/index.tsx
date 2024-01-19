@@ -12,6 +12,8 @@ import Text from '../../components/Text';
 import { textTypes } from '../../components/Text/textTypes';
 import PressableText from '../../components/PressableText';
 import { buttonsTheme } from '../../components/Button/types';
+import LinearGradient from 'react-native-linear-gradient';
+import theme from '../../styles/theme';
 
 const styles = StyleSheet.create({
   logo: {
@@ -31,10 +33,11 @@ const Login = () => {
   const { signIn } = useAuth();
   return (
     <ScrollView contentContainerStyle={styles.scrollView} keyboardShouldPersistTaps="handled">
+       <LinearGradient start={{x: 0, y: 0}} end={{x: 1.0, y: 1.0}} colors={['#eddae9', '#9487e0']}>
       <ContainerLogin>
         <ContainerInputs>
           <Image style={styles.logo} source={require('../../assets/images/wallet.png')} />
-          <Text type={textTypes.TITLE}>Welcome to Banking App!</Text>
+          <Text color={theme.PURPLEDARK1} type={textTypes.TITLE}>Banking app</Text>
           <Input onChangeText={setEmail} placeholder="E-mail" value={email} />
           <Input
             onChangeText={setPassword}
@@ -66,6 +69,7 @@ const Login = () => {
           />
         </ContainerFooter>
       </ContainerLogin>
+      </LinearGradient>
     </ScrollView>
   );
 };

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { TextProps as TextPropsNative } from 'react-native/types';
 import { ContainerText } from './styles';
 import { useMemo } from 'react';
