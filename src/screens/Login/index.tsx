@@ -48,7 +48,7 @@ const Login = () => {
               leftText
               title="E-mail"
               onChangeText={setEmail}
-              placeholder="teste@gmail.com"
+              placeholder="Enter your e-mail"
               value={email}
               // errorMessage="E-mail is invalid"
             />
@@ -57,8 +57,9 @@ const Login = () => {
               title="Password"
               onChangeText={setPassword}
               value={password}
-              placeholder="*******"
+              placeholder="Enter yout password"
               textContentType="password"
+              secureText
               // errorMessage="Password is invalid"
             />
           </ContainerInputs>
