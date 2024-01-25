@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 
 export const ContainerLogin = styled.View`
-  /* background-color: #d4c3eb; */
   height: 100%;
   width: 100%;
   justify-content: flex-start;
@@ -12,6 +11,7 @@ export const ContainerInputs = styled.View`
   align-items: center;
   justify-content: center;
   margin-top: 80px;
+  width: 80%;
 `;
 
 export const ContainerFooter = styled.View`

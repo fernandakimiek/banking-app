@@ -24,9 +24,9 @@ export default function SignUp() {
       <Container>
         <FormView>
           <Text type={textTypes.TITLE}>Sign Up</Text>
-          <Input onChangeText={setName} placeholder="Name" value={name} />
-          <Input onChangeText={setEmail} placeholder="E-mail" value={email} />
-          <Input onChangeText={setPassword} value={password} placeholder="Password" />
+          <Input leftText title="Name" onChangeText={setName} value={name} />
+          <Input leftText title="E-mail" onChangeText={setEmail} value={email} />
+          <Input leftText title="Password" onChangeText={setPassword} value={password} />
         </FormView>
         <ContainerFooter>
           <Button

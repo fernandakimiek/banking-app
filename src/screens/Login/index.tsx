@@ -33,42 +33,55 @@ const Login = () => {
   const { signIn } = useAuth();
   return (
     <ScrollView contentContainerStyle={styles.scrollView} keyboardShouldPersistTaps="handled">
-       <LinearGradient start={{x: 0, y: 0}} end={{x: 1.0, y: 1.0}} colors={['#eddae9', '#9487e0']}>
-      <ContainerLogin>
-        <ContainerInputs>
-          <Image style={styles.logo} source={require('../../assets/images/wallet.png')} />
-          <Text color={theme.PURPLEDARK1} type={textTypes.TITLE}>Banking app</Text>
-          <Input onChangeText={setEmail} placeholder="E-mail" value={email} />
-          <Input
-            onChangeText={setPassword}
-            value={password}
-            placeholder="Password"
-            textContentType="password"
-          />
-        </ContainerInputs>
+      <LinearGradient
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1.0, y: 1.0 }}
+        colors={['#eddae9', '#9487e0']}
+      >
+        <ContainerLogin>
+          <ContainerInputs>
+            <Image style={styles.logo} source={require('../../assets/images/wallet.png')} />
+            <Text color={theme.PURPLEDARK1} type={textTypes.TITLE}>
+              Banking app
+            </Text>
+            <Input
+              leftText
+              title="E-mail"
+              onChangeText={setEmail}
+              placeholder="teste@gmail.com"
+              value={email}
+            />
+            <Input
+              leftText
+              title="Password"
+              onChangeText={setPassword}
+              value={password}
+              placeholder="*******"
+              textContentType="password"
+            />
+          </ContainerInputs>
 
-        <Button
-          // color="#973aee"
-          title="LOGIN"
-          margin={18}
-          typeText={textTypes.SUBTITLE}
-          onPress={() => signIn(email, password)}
-          type={buttonsTheme.primary}
-        />
-        <PressableText
-          color="#721f99"
-          label="Forgot password"
-          onPress={() => navigation.navigate('ForgotPassword')}
-        />
-        <ContainerFooter>
-          <Text>Don't have an account yet? </Text>
+          <Button
+            title="LOGIN"
+            margin={18}
+            typeText={textTypes.SUBTITLE}
+            onPress={() => signIn(email, password)}
+            type={buttonsTheme.primary}
+          />
           <PressableText
             color="#721f99"
-            label="Sign up"
-            onPress={() => navigation.navigate('SignUp')}
+            label="Forgot password"
+            onPress={() => navigation.navigate('ForgotPassword')}
           />
-        </ContainerFooter>
-      </ContainerLogin>
+          <ContainerFooter>
+            <Text>Don't have an account yet? </Text>
+            <PressableText
+              color="#721f99"
+              label="Sign up"
+              onPress={() => navigation.navigate('SignUp')}
+            />
+          </ContainerFooter>
+        </ContainerLogin>
       </LinearGradient>
     </ScrollView>
   );

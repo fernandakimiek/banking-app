@@ -22,7 +22,7 @@ export const ButtonSecondary = styled(ButtonContainer)<ButtonContainerProps>`
 
   background-color: ${theme.TRANSPARENT};
   border-width: 2px;
-  border-color: ${theme.PURPLE2}
+  border-color: ${theme.PURPLE2};
 `;
 
 export const ButtonGradient = styled(LinearGradient)<ButtonContainerProps>`
@@ -32,4 +32,14 @@ export const ButtonGradient = styled(LinearGradient)<ButtonContainerProps>`
   justify-content: center;
   align-items: center;
   ${(props) => (props.margin ? `margin: ${props.margin}px;` : '')};
+`;
+
+export const DisabledButton = styled(ButtonContainer)<ButtonContainerProps>`
+  width: 80%;
+  height: 100%;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  ${(props) => (props.margin ? `margin: ${props.margin}px;` : '')};
+  ${(props) => (props.color ? `background-color: ${props.color};` : '')}
 `;

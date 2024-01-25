@@ -8,8 +8,9 @@ import { textTypes } from './textTypes';
 interface TextProps extends TextPropsNative {
   color?: string;
   type?: string;
+  customMargin?: string;
 }
-const Text = ({ color, type, ...props }: TextProps) => {
+const Text = ({ color, type, customMargin, ...props }: TextProps) => {
   const handleFontSize = useMemo(() => {
     switch (type) {
       case textTypes.TITLE:
@@ -20,7 +21,9 @@ const Text = ({ color, type, ...props }: TextProps) => {
         return '12px';
     }
   }, [type]);
-  return <ContainerText color={color} fontSize={handleFontSize} {...props} />;
+  return (
+    <ContainerText customMargin={customMargin} color={color} fontSize={handleFontSize} {...props} />
+  );
 };
 
 export default Text;

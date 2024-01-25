@@ -12,6 +12,7 @@ export const FormView = styled.View`
   align-items: center;
   justify-content: center;
   margin-top: 80px;
+  width: 80%;
 `;
 
 export const ContainerFooter = styled.View`

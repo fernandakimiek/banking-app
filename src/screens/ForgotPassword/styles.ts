@@ -9,7 +9,7 @@ export const ForgotPasswordContainer = styled.View`
 `;
 
 export const InputContainer = styled.View`
-  width: 100%;
+  width: 80%;
   padding: 10px;
   align-items: center;
   justify-content: center;
