@@ -9,9 +9,10 @@ import theme from '../../styles/theme';
 interface InputProps extends TextInputProps {
   title?: string;
   leftText?: boolean;
+  errorMessage?: string;
 }
 
-const Input = ({ title, leftText, ...props }: InputProps) => {
+const Input = ({ title, leftText, errorMessage, ...props }: InputProps) => {
   const margin = leftText ? '0px 250px 0px 0px' : '0px';
   return (
     <DisplayFlexColumn>
@@ -20,7 +21,12 @@ const Input = ({ title, leftText, ...props }: InputProps) => {
           {title}
         </Text>
       )}
-      <ContainerInput {...props} />
+      <ContainerInput isError={!!errorMessage} {...props} />
+      {errorMessage && (
+        <Text customMargin="0px 180px 0px 0px" color={theme.RED}>
+          {errorMessage}
+        </Text>
+      )}
     </DisplayFlexColumn>
   );
 };

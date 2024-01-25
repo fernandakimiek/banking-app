@@ -50,6 +50,7 @@ const Login = () => {
               onChangeText={setEmail}
               placeholder="teste@gmail.com"
               value={email}
+              // errorMessage="E-mail is invalid"
             />
             <Input
               leftText
@@ -58,6 +59,7 @@ const Login = () => {
               value={password}
               placeholder="*******"
               textContentType="password"
+              // errorMessage="Password is invalid"
             />
           </ContainerInputs>
 

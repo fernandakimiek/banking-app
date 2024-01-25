@@ -5,5 +5,6 @@ export const DisplayFlexColumn = styled.View`
   flex-direction: column;
   width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 6px;
 `;

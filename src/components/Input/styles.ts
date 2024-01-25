@@ -1,6 +1,11 @@
 import styled from 'styled-components/native';
+import theme from '../../styles/theme';
 
-export const ContainerInput = styled.TextInput`
+interface ContainerInputProps {
+  isError?: boolean;
+}
+
+export const ContainerInput = styled.TextInput<ContainerInputProps>`
   height: 48px;
   margin: 4px;
   border-width: 2px;
@@ -8,7 +13,7 @@ export const ContainerInput = styled.TextInput`
   width: 100%;
 
   border-radius: 10px;
-  border-color: #b65ef1;
+  border-color: ${(props) => (props.isError ? theme.RED : '#b65ef1')};
   background-color: #ffff;
   color: #888;
 `;
