@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
-import { Image, StyleSheet, ScrollView } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  ScrollView,
+  NativeSyntheticEvent,
+  TextInputChangeEventData,
+} from 'react-native';
 import { StackTypes } from '../../routes/stack';
 
 import { useAuth } from '../../contexts/Auth';
@@ -27,10 +33,37 @@ const styles = StyleSheet.create({
 });
 
 const Login = () => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>('');
+
   const navigation = useNavigation<StackTypes>();
   const { signIn } = useAuth();
+
+  const handleLogin = async () => {
+    if (email === '' || password === '') {
+      return setErrorMessage('E-mail and password are required');
+    }
+    setLoading(true);
+    try {
+      await signIn(email, password);
+    } catch (error) {
+      setErrorMessage('E-mail or password is invalid');
+    }
+    setLoading(false);
+  };
+
+  const handleChangeEmail = (event: NativeSyntheticEvent<TextInputChangeEventData>) => {
+    setErrorMessage('');
+    setEmail(event.nativeEvent.text);
+  };
+
+  const handleChangePassword = (event: NativeSyntheticEvent<TextInputChangeEventData>) => {
+    setErrorMessage('');
+    setPassword(event.nativeEvent.text);
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.scrollView} keyboardShouldPersistTaps="handled">
       <LinearGradient
@@ -45,20 +78,19 @@ const Login = () => {
               Banking app
             </Text>
             <Input
-              leftText
               title="E-mail"
-              onChangeText={setEmail}
+              onChange={handleChangeEmail}
               placeholder="Enter your e-mail"
               value={email}
-              // errorMessage="E-mail is invalid"
+              errorMessage={errorMessage}
             />
             <Input
-              leftText
               title="Password"
-              onChangeText={setPassword}
+              onChange={handleChangePassword}
               value={password}
               placeholder="Enter yout password"
               textContentType="password"
+              errorMessage={errorMessage}
               secureText
               // errorMessage="Password is invalid"
             />
@@ -68,8 +100,9 @@ const Login = () => {
             title="LOGIN"
             margin={18}
             typeText={textTypes.SUBTITLE}
-            onPress={() => signIn(email, password)}
+            onPress={() => handleLogin()}
             type={buttonsTheme.primary}
+            loading={loading}
           />
           <PressableText
             color="#721f99"

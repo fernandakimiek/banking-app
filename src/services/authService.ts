@@ -12,10 +12,13 @@ type User = {
 
 const signIn = async (email: string, password: string): Promise<AuthData> => {
   const { data, status } = await axios.get('https://6553607d5449cfda0f2e94f2.mockapi.io/users');
-  let usersFound: Array<any | User>;
+  let usersFound: string | any[];
 
   if (status === 200) {
     usersFound = data.filter((user: { email: string }) => user.email === email);
+    if (usersFound.length <= 0) {
+      throw new Error('User not found');
+    }
   }
 
   return new Promise((resolve, reject) => {

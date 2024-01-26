@@ -37,10 +37,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   async function loadStorageData(): Promise<void> {
     try {
-      //Try get the data from Async Storage
       const authDataSerialized = await AsyncStorage.getItem('@AuthData');
       if (authDataSerialized) {
-        //If there are data, it's converted to an Object and the state is updated.
         const _authData: AuthData = JSON.parse(authDataSerialized);
         setAuthData(_authData);
       }
@@ -57,7 +55,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       setAuthData(authData);
       AsyncStorage.setItem('@AuthData', JSON.stringify(authData));
     } catch (error: any) {
-      Alert.alert(error.message, 'Tente novamente');
+      throw new Error('Erro ao logar');
     }
   }
   async function signOut() {

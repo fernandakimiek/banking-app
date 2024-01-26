@@ -9,7 +9,8 @@ interface ContainerInputProps {
 
 export const ContainerInput = styled.TextInput<ContainerInputProps>`
   height: 48px;
-  margin: 4px;
+  margin-top: 4px;
+  margin-bottom: 4px;
   border-width: 2px;
   padding: 16px;
   width: 100%;

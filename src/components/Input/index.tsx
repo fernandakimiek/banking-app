@@ -8,26 +8,20 @@ import theme from '../../styles/theme';
 
 interface InputProps extends TextInputProps {
   title?: string;
-  leftText?: boolean;
   errorMessage?: string;
   secureText?: boolean;
 }
 
-const Input = ({ title, leftText, errorMessage, secureText, ...props }: InputProps) => {
+const Input = ({ title, errorMessage, secureText, ...props }: InputProps) => {
   const [currentSecure, setCurrentSecure] = useState<boolean>(!!secureText);
 
   const handleOnPressEye = () => {
     setCurrentSecure((current) => !current);
   };
 
-  const margin = leftText ? '0px 250px 0px 0px' : '0px';
   return (
     <DisplayFlexColumn>
-      {title && (
-        <Text customMargin={margin} color={theme.GRAYHARD}>
-          {title}
-        </Text>
-      )}
+      {title && <Text color={theme.GRAYHARD}>{title}</Text>}
 
       <ContainerInput
         hasSecureTextEntry={secureText}
@@ -44,11 +38,7 @@ const Input = ({ title, leftText, errorMessage, secureText, ...props }: InputPro
         />
       )}
 
-      {errorMessage && (
-        <Text customMargin="0px 180px 0px 0px" color={theme.RED}>
-          {errorMessage}
-        </Text>
-      )}
+      {errorMessage && <Text color={theme.RED}>{errorMessage}</Text>}
     </DisplayFlexColumn>
   );
 };
