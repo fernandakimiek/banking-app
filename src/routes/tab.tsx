@@ -24,14 +24,15 @@ export default function TabRoutes() {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: true,
-        tabBarInactiveTintColor: theme.GRAY4,
-        tabBarActiveTintColor: theme.GRAY1,
+        tabBarInactiveTintColor: theme.PURPLEDARK2,
+        tabBarActiveTintColor: theme.WHITE,
         tabBarStyle: {
-          paddingBottom: 7,
-          backgroundColor: theme.GRAY6,
+          padding: 8,
+          height: 60,
+          backgroundColor: theme.PURPLE1,
         },
         tabBarLabelStyle: {
-          fontSize: 11,
+          marginBottom: 8,
         },
       }}
     >
