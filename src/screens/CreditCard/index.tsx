@@ -1,43 +1,57 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 
 import { PaymentIcon } from 'react-native-payment-icons';
 import { Ionicons } from '@expo/vector-icons';
 import theme from '../../styles/theme';
 import { Container, Content, ContentAccount } from './styles';
+import { useAuth } from '../../contexts/Auth';
+import Text from '../../components/Text';
 
 export default function CreditCard() {
+  const { authData } = useAuth();
   return (
     <Container>
       <Content>
         <ContentAccount>
           <Text
             style={{
-              color: theme.GRAY,
+              color: theme.BACKGROUNDDEFAULT,
+              fontSize: 15,
+              marginTop: 15,
+            }}
+          >
+            CREDIT CARD ACCOUNT
+          </Text>
+
+          <Text
+            style={{
+              color: theme.RED,
               fontSize: 15,
               marginTop: 10,
             }}
           >
-            BASIC CURRENT ACCOUNT
+            Credit limit
           </Text>
 
           <Text
             style={{
               color: theme.WHITE,
               fontWeight: 'bold',
-              fontSize: 25,
+              fontSize: 20,
             }}
           >
-            R$ 15.000,00 <Ionicons name="eye" size={24} color="white" />
+            $ {authData?.creditLimit}
           </Text>
 
           <Text
             style={{
-              color: theme.GRAY,
+              color: theme.WHITE,
               fontSize: 15,
+              marginTop: 15,
             }}
           >
-            JOHN TRAVOLTA
+            {authData?.name.toUpperCase()}
           </Text>
           <View
             style={{
@@ -46,7 +60,7 @@ export default function CreditCard() {
               marginBottom: 10,
             }}
           >
-            <PaymentIcon type="master" width={40} />
+            <PaymentIcon style={{ margin: 10 }} type="master" width={50} />
           </View>
         </ContentAccount>
       </Content>

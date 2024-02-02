@@ -12,6 +12,7 @@ export interface AuthData {
   password: String;
   amount: Number | any;
   account: Number | any;
+  creditLimit: Number | any;
 }
 
 interface AuthContextData {
